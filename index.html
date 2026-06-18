@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LPU CGPA Calculator | Premium Grade Tracker</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="background-globes">
+      <div class="globe globe-1"></div>
+      <div class="globe globe-2"></div>
+      <div class="globe globe-3"></div>
+    </div>
+
+    <div class="main-container" id="top">
+      <nav class="topbar" aria-label="Profile links">
+        <a class="brand-mark" href="#top" aria-label="LPU CGPA Calculator">
+          <span>LPU</span> CGPA
+        </a>
+        <div class="nav-actions">
+          <a href="#calculator" class="nav-link">Calculator</a>
+          <a href="#reference" class="nav-link">Grades</a>
+        </div>
+        <div class="top-social-links">
+          <a
+            href="https://github.com/AbhishekPatel9305"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub"
+            aria-label="GitHub profile"
+            ><i class="fab fa-github"></i><span>GitHub</span
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/abhishekkumar9305/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="LinkedIn"
+            aria-label="LinkedIn profile"
+            ><i class="fab fa-linkedin"></i><span>LinkedIn</span
+          ></a>
+          <a
+            href="https://www.instagram.com/abhishek.patel_45"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram"
+            aria-label="Instagram profile"
+            ><i class="fab fa-instagram"></i><span>Instagram</span
+          ></a>
+        </div>
+      </nav>
+
+      <header class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Academic performance tracker</span>
+          <h1>LPU <span class="highlight">CGPA</span> Calculator</h1>
+          <p>
+            Calculate semester grades, credits, and overall CGPA with a clean
+            professional dashboard made for LPU students.
+          </p>
+          <div class="hero-actions">
+            <a href="#calculator" class="btn btn-primary">
+              <i class="fas fa-calculator"></i> Start Calculating
+            </a>
+            <a
+              href="https://whatsapp.com/channel/0029VbAg5sKFy72FtpxgY22V"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              <i class="fab fa-whatsapp"></i> WhatsApp Updates
+            </a>
+          </div>
+          <p class="header-credit">
+            Made by <span class="highlight-name">LPU ALL UPDATES Team</span>
+          </p>
+        </div>
+        <div class="hero-panel glass-panel">
+          <div class="hero-panel-top">
+            <span>Live summary</span>
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="hero-score">10.00</div>
+          <p>Plan your marks, credits, SGPA, and CGPA in one focused workspace.</p>
+        </div>
+      </header>
+
+      <section class="stats-strip" aria-label="Highlights">
+        <div class="stat-card">
+          <i class="fas fa-users"></i>
+          <div>
+            <strong>15000+</strong>
+            <span>Student community</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-table"></i>
+          <div>
+            <strong>LPU</strong>
+            <span>Grade reference</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <i class="fas fa-bolt"></i>
+          <div>
+            <strong>Instant</strong>
+            <span>CGPA calculation</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="community-banner glass-panel">
+        <h2>
+          <i class="fab fa-whatsapp"></i> Join Our Student Community of 15000+
+          students!
+        </h2>
+        <p>
+          Get exclusive updates, study materials, and connect with fellow LPU
+          students.
+        </p>
+        <a
+          href="https://whatsapp.com/channel/0029VbAg5sKFy72FtpxgY22V"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-whatsapp-large"
+        >
+          <i class="fab fa-whatsapp"></i> Join WhatsApp Channel Now
+        </a>
+      </div>
+
+      <section class="calculator-wrapper" id="calculator">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">Workspace</span>
+            <h2>CGPA Calculator</h2>
+          </div>
+          <p>Add semesters, enter credits and marks, and track the result instantly.</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+          <button id="add-semester-btn" class="btn btn-secondary">
+            <i class="fas fa-plus-circle"></i> Add Semester
+          </button>
+          <button id="reset-btn" class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i> Reset All
+          </button>
+        </div>
+
+        <!-- Semesters Container -->
+        <div id="semesters-container">
+          <!-- Semester 1 will be added by default via JS -->
+        </div>
+
+        <!-- Overall Result -->
+        <div class="overall-result-card glass-panel">
+          <div class="result-column">
+            <div class="result-item">
+              <span class="label">Overall CGPA (Min)</span>
+              <span class="value" id="final-cgpa">0.00</span>
+            </div>
+            <div class="result-item hidden" id="projected-cgpa-row">
+              <span class="label">Expected CGPA</span>
+              <span class="value sub-value" id="projected-cgpa">0.00</span>
+            </div>
+          </div>
+          <div class="divider-vertical huge"></div>
+          <div class="result-item">
+            <span class="label">Total Credits</span>
+            <span class="value" id="final-credits">0</span>
+          </div>
+        </div>
+
+        <div class="disclaimer-box">
+          <i class="fas fa-exclamation-triangle"></i>
+          <p>
+            <strong>Note:</strong> This is the minimum CGPA calculated based on
+            standard LPU tables. Your actual CGPA is most likely to increase due
+            to <strong>Relative Grading</strong>. Passing criteria is 40 Marks.
+          </p>
+        </div>
+      </section>
+
+      <!-- Reference Table -->
+      <div class="reference-section glass-panel" id="reference">
+        <div class="section-heading compact">
+          <div>
+            <span class="section-kicker">Reference</span>
+            <h2><i class="fas fa-info-circle"></i> Grade Point Table</h2>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Marks Range</th>
+                <th>Grade</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>90 - 100</td>
+                <td>O</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>80 - 89</td>
+                <td>A+</td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>70 - 79</td>
+                <td>A</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>60 - 69</td>
+                <td>B+</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>50 - 59</td>
+                <td>B</td>
+                <td>6</td>
+              </tr>
+              <tr>
+                <td>45 - 49</td>
+                <td>C</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>40 - 44</td>
+                <td>D</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>Below 40</td>
+                <td>F</td>
+                <td>0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <footer class="main-footer">
+        <div class="footer-content">
+          <div class="footer-links">
+            <a
+              href="https://happenings.lpu.in/understanding-the-grading-system-in-lpu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link"
+              ><i class="fas fa-book"></i> Grading System Info</a
+            >
+            <a
+              href="https://whatsapp.com/channel/0029VbAg5sKFy72FtpxgY22V"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-link whatsapp"
+              ><i class="fab fa-whatsapp"></i> Join WhatsApp Group</a
+            >
+          </div>
+
+          <p class="credits">
+            Made by <span class="author-name">LPU ALL UPDATES Team</span>
+          </p>
+
+          <div class="social-icons">
+            <a
+              href="https://github.com/AbhishekPatel9305"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/abhishekkumar9305/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/abhishek.patel_45"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+
+          <p class="copyright">Designed for LPU Students</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Templates for JS to clone -->
+    <template id="semester-template">
+      <div class="semester-card glass-panel fade-in">
+        <div class="semester-header">
+          <h2>Semester <span class="semester-number">1</span></h2>
+          <div class="semester-actions">
+            <span class="semester-sgpa"
+              >SGPA / TGPA: <strong class="sgpa-value">0.00</strong></span
+            >
+            <button class="btn-icon delete-semester" title="Delete Semester">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="subjects-list">
+          <div class="subject-header-row">
+            <div class="col-name">Subject Name</div>
+            <div class="col-credits">Credits</div>
+            <div class="col-marks">Marks / Grade</div>
+            <div class="col-action"></div>
+          </div>
+          <!-- Subjects will go here -->
+        </div>
+
+        <div class="quick-add-toolbar">
+          <input
+            type="number"
+            class="quick-add-count"
+            value="1"
+            min="1"
+            max="10"
+          />
+          <button class="btn btn-sm btn-secondary quick-add-btn">
+            Add Subjects
+          </button>
+          <div class="divider-vertical"></div>
+          <button class="btn btn-sm btn-primary add-subject-btn">
+            <i class="fas fa-plus"></i> Add One
+          </button>
+        </div>
+      </div>
+    </template>
+
+    <template id="subject-row-template">
+      <div class="subject-row slide-in">
+        <div class="input-group col-name">
+          <input type="text" placeholder="e.g. CAP 101" class="subject-name" />
+        </div>
+        <div class="input-group col-credits">
+          <input
+            type="number"
+            min="1"
+            max="10"
+            placeholder="Credits"
+            class="credit-input"
+          />
+        </div>
+        <div class="input-group col-marks">
+          <div class="toggle-type">
+            <select class="input-type-selector">
+              <option value="marks">Marks</option>
+              <option value="grade">Grade</option>
+            </select>
+          </div>
+          <input
+            type="number"
+            min="0"
+            max="100"
+            placeholder="0-100"
+            class="marks-input"
+          />
+          <select class="grade-select hidden">
+            <option value="10">O (90-100)</option>
+            <option value="9">A+ (80-89)</option>
+            <option value="8">A (70-79)</option>
+            <option value="7">B+ (60-69)</option>
+            <option value="6">B (50-59)</option>
+            <option value="5">C (45-49)</option>
+            <option value="4">D (40-44)</option>
+            <option value="0">F (<40)</option>
+          </select>
+        </div>
+        <div class="col-action">
+          <button class="btn-icon delete-subject">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+        <div class="fail-indicator-container">
+          <span class="fail-indicator"></span>
+        </div>
+      </div>
+    </template>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
